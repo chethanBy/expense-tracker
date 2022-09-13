@@ -25,6 +25,7 @@
   background-color: var(--color-purple);
 }
 
+/* text inside doughnut chart */
 .chart .title {
   position: absolute;
   left: 0;

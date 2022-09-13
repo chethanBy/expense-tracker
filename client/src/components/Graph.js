@@ -4,7 +4,7 @@ import { Chart, ArcElement } from "chart.js";
 
 Chart.register(ArcElement);
 
-// for doughnut
+// for Doughnut component responsible to style it
 const config = {
   data: {
     datasets: [
