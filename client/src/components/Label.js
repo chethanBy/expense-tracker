@@ -1,23 +1,20 @@
 import React from "react";
-import { apiSlice as api, useGetCategoriesQuery } from "../store/apiSlice";
-
-const obj = [
-  { type: "Savings", color: "#f9c74f", percent: 45 },
-  { type: "Investment", color: "#f9c74f", percent: 20 },
-  { type: "Expense", color: "rgb(54,162,235)", percent: 10 },
-];
+import { apiSlice as api } from "../store/apiSlice";
 
 const Label = () => {
   // using redux jook provided by createApi.
-  const { data, isFetching, isError, isSuccess } = useGetCategoriesQuery();
-
-  return (
-    <>
-      {obj.map((value, index) => {
-        return <LabelComponent key={index} data={value} />;
-      })}
-    </>
-  );
+  const { data, isFetching, isError, isSuccess } = api.useGetLabelsQuery();
+  let Transactions;
+  if (isFetching) {
+    Transactions = <div>Fetching</div>;
+  } else if (isSuccess) {
+    Transactions = data.map((value, index) => {
+      return <LabelComponent key={index} data={value} />;
+    });
+  } else if (isError) {
+    Transactions = <div>Error</div>;
+  }
+  return <>{Transactions}</>;
 };
 
 export default Label;
@@ -34,7 +31,7 @@ const LabelComponent = ({ data }) => {
         <h3>{data.type ?? ""}</h3>
       </div>
       <div className="flex gap-2">
-        <h3 className="font-bold">{data.percent}%</h3>
+        <h3 className="font-bold">{data.percent ? data.percent : 0}%</h3>
       </div>
     </div>
   );
