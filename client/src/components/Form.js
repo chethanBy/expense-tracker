@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import List from "./List";
 
 const Form = () => {
   // call register function where you want to extract data
@@ -42,12 +43,13 @@ const Form = () => {
             />
           </div>
           <div className="submit-btn">
-            <button className="border py-2 text-white bg-indigo-500 w-full">
+            <button className="border py-2 text-white bg-indigo-500 w-full hover:bg-indigo-600">
               Make Transaction
             </button>
           </div>
         </div>
       </form>
+      <List></List>
     </div>
   );
 };

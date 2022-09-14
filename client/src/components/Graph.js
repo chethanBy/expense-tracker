@@ -2,7 +2,6 @@ import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
 import Label from "./Label";
-
 Chart.register(ArcElement);
 
 // for Doughnut component responsible to style it
@@ -29,7 +28,7 @@ const config = {
 
 const Graph = () => {
   return (
-    <div className="flex flex-col justify-center max-w-xs mx-auto">
+    <div className="flex flex-col justify-center max-w-xs mx-auto pt-6">
       <div className="item">
         <div className="chart relative">
           <Doughnut {...config}></Doughnut>
