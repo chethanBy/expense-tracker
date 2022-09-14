@@ -1,4 +1,5 @@
 import React from "react";
+import { apiSlice as api, useGetCategoriesQuery } from "../store/apiSlice";
 
 const obj = [
   { type: "Savings", color: "#f9c74f", percent: 45 },
@@ -7,6 +8,9 @@ const obj = [
 ];
 
 const Label = () => {
+  // using redux jook provided by createApi.
+  const { data, isFetching, isError, isSuccess } = useGetCategoriesQuery();
+
   return (
     <>
       {obj.map((value, index) => {
