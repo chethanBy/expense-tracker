@@ -1,6 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart, ArcElement } from "chart.js";
+import Label from "./Label";
 
 Chart.register(ArcElement);
 
@@ -28,7 +29,7 @@ const config = {
 
 const Graph = () => {
   return (
-    <div className="flex justify-center max-w-xs mx-auto">
+    <div className="flex flex-col justify-center max-w-xs mx-auto">
       <div className="item">
         <div className="chart relative">
           <Doughnut {...config}></Doughnut>
@@ -38,7 +39,10 @@ const Graph = () => {
           </h3>
         </div>
       </div>
-      <div className="flex flex-col py-10 gap-4">{/* Labels */}</div>
+      <div className="flex flex-col py-10 gap-4">
+        {/* Labels */}
+        <Label></Label>
+      </div>
     </div>
   );
 };
