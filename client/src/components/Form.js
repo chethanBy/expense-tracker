@@ -51,7 +51,7 @@ const Form = () => {
             />
           </div>
           <div className="submit-btn">
-            <button className="border py-2 text-white bg-indigo-500 w-full hover:bg-indigo-600">
+            <button className="border py-2 text-white bg-indigo-500 w-full hover:bg-indigo-600 rounded-l">
               Make Transaction
             </button>
           </div>
