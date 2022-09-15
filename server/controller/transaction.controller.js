@@ -27,7 +27,6 @@ const delete_Transaction = async (req, res) => {
     if (!req.body) return res.status(400).json("send Data to store");
 
     await model.Transaction.deleteOne(req.body);
-
     return res.status(200).json("deleted entry");
   } catch (error) {
     return res.status(400).json({

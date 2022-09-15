@@ -5,7 +5,7 @@ exports.create_Categories = async (req, res) => {
   try {
     const Create = new model.Category({
       type: "Savings",
-      color: "#1F3B5C", //dark
+      color: "rgb(#FF6384)", //dark
     });
 
     await Create.save();

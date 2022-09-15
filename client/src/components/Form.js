@@ -1,13 +1,21 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { apiSlice as api } from "../store/apiSlice";
 import List from "./List";
 
 const Form = () => {
   // call register function where you want to extract data
   // call handleSubmit on form onSubmit witha function as parameter
   const { register, handleSubmit, resetField } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  // since we r using mutatuion hook we will get action addTransaction we specified in createSlice mutation
+  const [addTransaction] = api.useAddTransactionMutation();
+
+  const onSubmit = async (data) => {
+    if (!data) return {};
+    // use unwrap() for raw response
+    addTransaction(data).unwrap();
+    resetField("name");
+    resetField("amount");
   };
 
   return (

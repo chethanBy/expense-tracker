@@ -4,6 +4,7 @@ import { apiSlice as api } from "../store/apiSlice";
 const Label = () => {
   // using redux jook provided by createApi.
   const { data, isFetching, isError, isSuccess } = api.useGetLabelsQuery();
+
   let Transactions;
   if (isFetching) {
     Transactions = <div>Fetching</div>;
@@ -14,7 +15,7 @@ const Label = () => {
   } else if (isError) {
     Transactions = <div>Error</div>;
   }
-  return <>{Transactions}</>;
+  return <>{Transactions} </>;
 };
 
 export default Label;

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const baseURI = "http://localhost:5000/api";
+const baseURI = "http://localhost:5000";
 
 export const apiSlice = createApi({
   // fetchBaseQuery is similar to fetch in js
@@ -9,36 +9,42 @@ export const apiSlice = createApi({
     // get categories
     getCategories: builder.query({
       // query makes by default GET request
-      //   like get: http://localhost:5000/api/categories
-      query: () => "/categories",
+      // get: 'http://localhost:8080/api/categories'
+      query: () => "/api/categories",
+      providesTags: ["categories"],
     }),
-    //   get labels
+
+    // get labels
     getLabels: builder.query({
-      // get: http://localhost:5000/api/labels
-      query: () => "/labels",
+      // get: 'http://localhost:8080/api/labels'
+      query: () => "/api/labels",
+      providesTags: ["transaction"],
     }),
-    // add New Transaction
+
+    // add new Transaction
     // builder.mutation for requests other than GET
     addTransaction: builder.mutation({
       query: (initialTransaction) => ({
-        // post: http://localhost:5000/api/transaction
-        // endpoint
-        url: "/transaction",
+        // post: 'http://localhost:8080/api/transaction'
+        url: "/api/transaction",
         method: "POST",
         // req.body to server
         body: initialTransaction,
       }),
+      invalidatesTags: ["transaction"],
     }),
+
+    // delete record
     deleteTransaction: builder.mutation({
       query: (recordId) => ({
-        // delete: http://localhost:5000/api/transaction
-        url: "/transaction",
+        // delete: 'http://localhost:8080/api/transaction'
+        url: "/api/transaction",
         method: "DELETE",
-        // req.body to server
         body: recordId,
       }),
+      invalidatesTags: ["transaction"],
     }),
   }),
 });
 
-export const { useGetCategoriesQuery } = apiSlice;
+export default apiSlice;
