@@ -14,7 +14,31 @@ const Graph = () => {
   if (isFetching) {
     graphData = <div>Fetching</div>;
   } else if (isSuccess) {
-    graphData = <Doughnut {...chart_Data(data)}></Doughnut>;
+    if (getTotal(data) === 0) {
+      const data = {
+        data: {
+          datasets: [
+            {
+              data: [300, 50, 100],
+              backgroundColor: [
+                "rgb(255, 99, 132)",
+                "rgb(54, 162, 235)",
+                "rgb(255, 205, 86)",
+              ],
+              hoverOffset: 4,
+              borderRadius: 30,
+              spacing: 10,
+            },
+          ],
+        },
+        options: {
+          cutout: 115,
+        },
+      };
+      graphData = <Doughnut {...data}></Doughnut>;
+    } else {
+      graphData = <Doughnut {...chart_Data(data)}></Doughnut>;
+    }
     const total = getTotal(data);
   } else if (isError) {
     graphData = <div>Error</div>;
