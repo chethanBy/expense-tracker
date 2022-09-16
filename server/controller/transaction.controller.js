@@ -3,7 +3,7 @@ const model = require("../models/model");
 // post: /api/transaction
 const create_Transaction = async (req, res) => {
   try {
-    if (!req.body) return res.status(400).json("send Data to store");
+    if (!req.body) return res.status(400).json("Need to enter data");
     const { name, type, amount } = req.body;
 
     const create = new model.Transaction({
@@ -12,7 +12,7 @@ const create_Transaction = async (req, res) => {
       amount,
     });
     await create.save();
-    return res.status(200).json(create);
+    return res.status(200).json({ msg: "ok" });
   } catch (error) {
     return res.status(400).json({
       error: true,
@@ -40,7 +40,7 @@ const delete_Transaction = async (req, res) => {
 const get_Transaction = async (req, res) => {
   try {
     let data = await model.Transaction.find({});
-    return res.status(200).json(data);
+    return res.status(200).json({ msg: "ok" });
   } catch (error) {
     return res
       .status(400)
