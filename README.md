@@ -1,5 +1,5 @@
 
-# Project Title
+# Expense Tracker Application with RTK Query
 
 Complete MERN Stack Expense Tracker Application with RTK Query. Fully Responsive.
 
