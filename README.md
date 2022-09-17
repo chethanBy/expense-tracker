@@ -16,7 +16,7 @@ If you get any Error which the application loads for the first time please wait 
 **Others:** lodash, heroku, git
 ## Demo
 
-Insert gif or link to demo
+https://expensetracker-client.vercel.app
 
 
 ## Screenshots
