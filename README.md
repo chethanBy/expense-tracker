@@ -5,7 +5,7 @@ Complete MERN Stack Expense Tracker Application with RTK Query. Fully Responsive
 
 This Web Application demonstrates my capability to perform CRUB operations in MERN stack and the use of aggregation pipeline in MonogDB.
 
-
+If you get any Error which the application loads for the first time please wait for 5seconds and refresh the page. Application should be good to go.
 
 ## Tech Stack
 
